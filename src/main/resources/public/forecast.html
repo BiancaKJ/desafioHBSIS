@@ -1,0 +1,37 @@
+<html ng-app="Forecast">
+
+<head>
+  <title>Previsao do Tempo</title>
+  <link rel="stylesheet" type="text/css" href="app/bootstrap/bootstrap.css">
+  <script src="app/angular/angular.js"></script>
+  <script>angular.module("Forecast", [])</script>
+
+</head>
+
+<body ng-controller="forecastController">
+  <div>
+    <h2 style="text-align: center; margin-top: 30px">Previsao do Tempo</h2>
+    <div>
+      <table class="table table-bordered overflow-auto" style="width: 750px; margin: auto; margin-top: 30px">
+        <thead style="text-align: center">
+          <tr>
+            <th scope="col" style="width: 250px">Dia</th>
+            <th scope="col" style="width: 250px">Temperatura</th>
+            <th scope="col" style="width: 250px">Tempo</th>
+          </tr>
+        </thead>
+        <tbody style="text-align: center">
+          <tr ng-repeat="previsao in previsoes">
+            <td>{{previsao.dia}}</td>
+            <td>{{previsao.temperatura}</td>
+            <td>{{previsao.tempo}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="controllers/forecastController.js"></script>
+</body>
+
+</html>
