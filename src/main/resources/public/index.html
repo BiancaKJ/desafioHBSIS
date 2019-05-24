@@ -2,6 +2,8 @@
 
 <head>
   <title>Previsao do Tempo</title>
+
+  <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="app/bootstrap/bootstrap.css">
   <script src="app/angular/angular.js"></script>
   <script>angular.module("PrevisaoTempo", [])</script>
@@ -11,47 +13,52 @@
 <body ng-controller="indexController">
 
   <div>
-    <h2 style="text-align: center; margin-top: 30px">Previsao do Tempo</h2>
+    <h2 style="text-align: center; margin-top: 30px">PREVISÃO DO TEMPO</h2>
     <div>
-      <h5 style="text-align: center; margin-top: 30px">Cadastrar Cidade</h5>
+      <h4 style="text-align: center; margin-top: 50px">Cadastrar Cidades</h4>
       <div class="input-group mb-3" style="width: 750px; margin: auto; margin-top: 25px">
-        <input type="text" class="form-control text-reset" ng-model="cidade" placeholder="Ex: Blumenau"
-          aria-describedby="button-addon2">
-        <input type="text" class="form-control text-reset" ng-model="pais" placeholder="Ex: br"
-          aria-describedby="button-addon2">
+        <input id="cids" type="text" class="form-control text-reset" ng-model="cidade" placeholder="Ex: Blumenau" aria-describedby="button-addon2">
+        <input id="pais" type="text" class="form-control text-reset" ng-model="pais" placeholder="Ex: br" aria-describedby="button-addon2">
         <div class="input-group-append">
           <button class="btn btn-dark" type="button" id="button-addon2"
-            ng-click="cadastrar(cidade,pais); buscar()">Cadastrar</button>
+            ng-click="validarCadastro(cidade,pais)">Cadastrar</button>
         </div>
       </div>
       <div class="alert alert-success" role="alert" style="width: 750px; margin: auto; margin-top: 25px" ng-show="idCadastro">
         Cidade cadastrada com sucesso!
-        <button type="button" class="close" data-dismiss="alert" ng-click="close(idCadastro)" aria-label="Close">
+        <button type="button" class="close" data-dismiss="alert" ng-click="fechar(idCadastro)" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="alert alert-danger" role="alert" style="width: 750px; margin: auto; margin-top: 25px" ng-show="idCadastroErro">
-        Erro no cadastro, verifique as informacoes!
-        <button type="button" class="close" data-dismiss="alert" ng-click="close(idCadastroErro)" aria-label="Close">
+        Erro no cadastro, verifique as informações!
+        <button type="button" class="close" data-dismiss="alert" ng-click="fechar(idCadastroErro)" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="alert alert-danger" role="alert" style="width: 750px; margin: auto; margin-top: 25px" ng-show="idApiErro">
+        Erro no cadastro, cidade sem previsao de tempo!
+        <button type="button" class="close" data-dismiss="alert" ng-click="fechar(idApiErro)" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
     </div>
     <div>
-      <h5 style="text-align: center; margin-top: 30px">Cidades Cadastradas</h5>
-      <table class="table table-bordered overflow-auto" style="width: 750px; margin: auto; margin-top: 25px">
+      <h4 style="text-align: center; margin-top: 50px">Cidades Cadastradas</h4>
+      <table class="table table-bordered overflow-auto" style="width: 750px; margin: auto; margin-top: 30px">
         <thead style="text-align: center">
           <tr>
             <th scope="col" style="width: 250px">Cidade</th>
-            <th scope="col" style="width: 250px">Pais</th>
-            <th scope="col" style="width: 250px">Previsao</th>
+            <th scope="col" style="width: 250px">País</th>
+            <th scope="col" style="width: 250px">Previsão</th>
           </tr>
         </thead>
         <tbody style="text-align: center">
           <tr ng-repeat="cidade in cadastradas">
             <td>{{cidade.nomeCidade}}</td>
             <td>{{cidade.pais}}</td>
-            <td><a href="forecast.html" class="btn btn-dark stretched-link">Vizualizar</a></td>
+            <td><a href="forecast.html" class="btn btn-dark stretched-link" nf-if="previsoes != undefined" ng-click="buscarApi(cidade.nomeCidade,cidade.pais)">Vizualizar</a></td>
+
           </tr>
         </tbody>
       </table>
@@ -59,6 +66,7 @@
   </div>
 
   <script src="controllers/indexController.js"></script>
+  <script src="forecast.html"></script>
 </body>
 
 </html>

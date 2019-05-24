@@ -16,13 +16,13 @@ public class Cidade {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_cidade")
+	@Column(name = "id")
 	private Integer id;
 
 	@Column(name = "nome_cidade")
 	private String nomeCidade;
 
-	@Column(name = "pais_cidade")
+	@Column(name = "pais")
 	private String pais;
 
 	public Integer getId() {
