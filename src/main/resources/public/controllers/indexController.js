@@ -3,6 +3,7 @@ var app = angular.module("PrevisaoTempo").controller('indexController', function
     $scope.idCadastro = false;
     $scope.idCadastroErro = false;
     $scope.idApiErro = false;
+    $scope.ids = {1:1,2:2,3:3,4:4,5:5};
 
     $window.onload = function () {
         $scope.buscarCidades();
@@ -36,7 +37,8 @@ var app = angular.module("PrevisaoTempo").controller('indexController', function
             url: '/forecast/' + cidade + '/' + pais
         }).then(function success(response) {
             $scope.valido = response.data.cod;
-            $scope.previsoes = response.data;
+            $scope.previsoes = response.data.list[""];
+            location.href="forecast.html"
         }, function error(error) {
             console.log(error);
             $scope.idApiErro = true;

@@ -13,7 +13,7 @@ public class ForecastService{
 	
 	RestTemplate restTemplate = new RestTemplate();	
 	String urlApi = "https://api.openweathermap.org";
-	String key = "eb8b1a9405e659b2ffc78f0a520b1a46";
+	String key = "445f7f0b691f4533a30115a9b0cc1cea";
 	String cidade;
 	
 	public HttpEntity<String> buscaPrevisao(String nomeCidade, String pais) {
