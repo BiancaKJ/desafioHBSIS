@@ -20,7 +20,7 @@ Abri o sql e colocar as seguintes configurações:
 Na aba consulta cole:
 - create database desafio;
 
-Depois aperte F9, aperte F5 e desafio deve aparecer do lado esquerdo.
+Depois aperte F9 -> aperte F5 e desafio deve aparecer do lado esquerdo.
 Selecione desafio, volte na aba consulta e cole:
 - create table cidades(
 
@@ -38,7 +38,7 @@ Abra o eclipse, na aba File -> Import -> Git -> Projects from git -> Clone URI e
 
 Clique em Next -> Next -> Next -> Next -> Finish.
 Abra o projeto desafioHBSIS, a pasta src/main/java e o pacote com.desafio.
-Clique com o botão direito na classe TempoApplication.java -> Run As - Java Application.
+Clique com o botão direito na classe TempoApplication.java -> Run As -> Java Application.
 
 Abra o browser, escreva localhost:8080 e divirta-se.
 
