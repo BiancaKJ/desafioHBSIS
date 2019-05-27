@@ -2,12 +2,43 @@
 
 Aplicação desenvolvida para cadastro, pesquisa de informações.
 
-# Foi utilizado
+# É necessário ter instalado 
 
-Backend: java 1.8
-Frontend: Angular.js 1.7, Bootstrap 4.0
-Banco de dados: Heidi Sql local
+WampServer e Heidi Sql
+Java 1.8
+Eclipse
 
 # Para rodar localmente
 
-Executar a classe TempoApplication.java
+Abrir o WampServer para rodar o banco localmente. 
+Abri o sql e colocar as seguintes configurações:
+- Tipo de rede: MySQL (TCP/IP)
+- Servidor/IP: localhost
+- Usuário: root
+- Porta: 3306
+
+Na aba consulta cole:
+- create database desafio;
+
+Depois aperte F9, aperte F5 e desafio deve aparecer do lado esquerdo.
+Selecione desafio, volte na aba consulta e cole:
+- create table cidades(
+
+	id_cidade int not null auto_increment,
+	nome_cidade varchar(50) not null,
+	pais_cidade varchar(5) not null,
+	primary key (id_cidade)
+
+);
+
+Depois aperte F9.
+
+Abra o eclipse, na aba File -> Import -> Git -> Projects from git -> Clone URI e no campo URI cole:
+- https://github.com/BiancaKJ/desafioHBSIS
+
+Clique em Next -> Next -> Next -> Next -> Finish.
+Abra o projeto desafioHBSIS, a pasta src/main/java e o pacote com.desafio.
+Clique com o botão direito na classe TempoApplication.java -> Run As - Java Application.
+
+Abra o browser, escreva localhost:8080 e divirta-se.
+
