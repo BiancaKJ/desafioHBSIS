@@ -20,7 +20,7 @@ Abri o HeidiSQL e colocar as seguintes configurações:
 Na aba consulta cole:
 - create database desafio;
 
-Depois aperte F9, clique fora da caixa consulta e aperte F5. A base desafio deve aparecer do lado esquerdo.
+Depois aperte F9, clique na caixa a esquerda fora da aba consulta e aperte F5. A base desafio deve aparecer do lado esquerdo.
 Selecione desafio, volte na aba consulta e cole:
 - create table cidades(
 	id_cidade int not null auto_increment,
