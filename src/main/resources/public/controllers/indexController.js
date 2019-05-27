@@ -30,7 +30,7 @@ app.controller('indexController', function ($scope, $http, $window) {
         });
     }
 
-    $scope.buscarApi = function(cidade,pais) {
+    $scope.buscarForecast = function(cidade,pais) {
         $http({
             method: 'GET',
             url: '/forecast/' + cidade + '/' + pais
