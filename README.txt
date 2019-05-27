@@ -1,6 +1,6 @@
 # DESAFIO HBSIS
 
-Aplicação desenvolvida para cadastro, pesquisa de informações.
+Aplicação desenvolvida para cadastro e pesquisa de informações.
 
 # É necessário ter instalado 
 
