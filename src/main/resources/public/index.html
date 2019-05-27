@@ -1,4 +1,4 @@
-<html ng-app="PrevisaoTempo">
+<html>
 
 <head>
   <title>Previsao do Tempo</title>
@@ -6,11 +6,11 @@
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="app/bootstrap/bootstrap.css">
   <script src="app/angular/angular.js"></script>
-  <script>angular.module("PrevisaoTempo", [])</script>
+  <script src="app.js"></script>
 
 </head>
 
-<body ng-controller="indexController">
+<body ng-app="PrevisaoTempo" ng-controller="indexController">
 
   <div>
     <h2 style="text-align: center; margin-top: 30px">PREVISÃO DO TEMPO</h2>
@@ -20,8 +20,7 @@
         <input id="cids" type="text" class="form-control text-reset" ng-model="cidade" placeholder="Ex: Blumenau" aria-describedby="button-addon2">
         <input id="pais" type="text" class="form-control text-reset" ng-model="pais" placeholder="Ex: br" aria-describedby="button-addon2">
         <div class="input-group-append">
-          <button class="btn btn-dark" type="button" id="button-addon2"
-            ng-click="validarCadastro(cidade,pais)">Cadastrar</button>
+          <button class="btn btn-dark" type="button" id="button-addon2" ng-click="validarCadastro(cidade,pais)">Cadastrar</button>
         </div>
       </div>
       <div class="alert alert-success" role="alert" style="width: 750px; margin: auto; margin-top: 25px" ng-show="idCadastro">
@@ -57,8 +56,7 @@
           <tr ng-repeat="cidade in cadastradas">
             <td>{{cidade.nomeCidade}}</td>
             <td>{{cidade.pais}}</td>
-            <td><a href="" class="btn btn-dark stretched-link" ng-click="buscarApi(cidade.nomeCidade,cidade.pais)">Vizualizar</a></td>
-
+            <td><button class="btn btn-dark" type="button" id="button-addon2" ng-click="buscarApi(cidade.nomeCidade,cidade.pais)">Vizualizar</button></td>
           </tr>
         </tbody>
       </table>
@@ -66,7 +64,7 @@
   </div>
 
   <script src="controllers/indexController.js"></script>
-  <script src="forecast.html"></script>
+  <script src="forecast.html" type="text/html"></script>
 </body>
 
 </html>

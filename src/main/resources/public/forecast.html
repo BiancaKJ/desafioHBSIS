@@ -1,44 +1,42 @@
-<html ng-app="PrevisaoTempo">
+<html>
 
 <head>
-  
   <title>Previsao do Tempo</title>
 
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="app/bootstrap/bootstrap.css">
   <script src="app/angular/angular.js"></script>
-  <script>angular.module("PrevisaoTempo", [])</script>
+  <script src="app.js"></script>
 
 </head>
 
-<body ng-controller="indexController">
+<body ng-app="PrevisaoTempo" ng-controller="forecastController">
 
   <h2 style="text-align: center; margin-top: 30px">PREVISAO DO TEMPO</h2>
   <div>
     <table class="table table-bordered overflow-auto" style="width: 750px; margin: auto; margin-top: 50px">
       <thead style="text-align: center">
         <tr>
-          <th scope="col" style="width: 250px">Dia</th>
-          <th scope="col" style="width: 250px">Temperatura</th>
-          <th scope="col" style="width: 250px">Tempo</th>
+          <th scope="col" style="width: auto">Data e Hora</th>
+          <th scope="col" style="width: auto">Temp. Máxima (°C)</th>
+          <th scope="col" style="width: auto">Temp. Miníma (°C)</th>
+          <th scope="col" style="width: auto">Humidade (%)</th>
+          <th scope="col" style="width: auto">Nuvens (%)</th>
         </tr>
       </thead>
       <tbody style="text-align: center">
-        <tr >
-          <td>{{previsao.dia}}</td>
-          <td>{{previsao.temperatura}</td>
-          <td>{{previsao.tempo}}</td>
+        <tr ng-repeat="previsao in previsoes">
+          <td>{{previsao.dt_txt}}</td>
+          <td>{{previsao.main.temp_max}}</td>
+          <td>{{previsao.main.temp_min}}</td>
+          <td>{{previsao.main.humidity}}</td>          
+          <td>{{previsao.clouds.all}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <link rel="stylesheet" type="text/css" href="app/bootstrap/bootstrap.css">
-  <script src="app/angular/angular.js"></script>
-  <script src="controllers/indexController.js"></script>
-</div>
 
-  <script src="controllers/indexController.js"></script>
-  <script src="forecast.html"></script>
+  <script src="controllers/forecastController.js"></script>
 </body>
 
 </html>

@@ -20,4 +20,9 @@ public class ForecastRest {
 	public HttpEntity<String> buscaPrevisao(@PathVariable("cidade") String nomeCidade, @PathVariable("pais") String pais) {
 		return forecastService.buscaPrevisao(nomeCidade, pais);
 	}
+	
+	@GetMapping(value = "/previsoes")
+	public HttpEntity<String> buscaPrevisoes() {
+		return forecastService.getPrevisoes();
+	}
 }

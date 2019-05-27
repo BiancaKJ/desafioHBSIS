@@ -1,9 +1,8 @@
-var app = angular.module("PrevisaoTempo").controller('indexController', function ($scope, $http, $window) {
+app.controller('indexController', function ($scope, $http, $window) {
 
     $scope.idCadastro = false;
     $scope.idCadastroErro = false;
     $scope.idApiErro = false;
-    $scope.ids = {1:1,2:2,3:3,4:4,5:5};
 
     $window.onload = function () {
         $scope.buscarCidades();
@@ -36,9 +35,7 @@ var app = angular.module("PrevisaoTempo").controller('indexController', function
             method: 'GET',
             url: '/forecast/' + cidade + '/' + pais
         }).then(function success(response) {
-            $scope.valido = response.data.cod;
-            $scope.previsoes = response.data.list[""];
-            location.href="forecast.html"
+            location.href="forecast.html";
         }, function error(error) {
             console.log(error);
             $scope.idApiErro = true;
@@ -63,13 +60,21 @@ var app = angular.module("PrevisaoTempo").controller('indexController', function
 
     $scope.validarCadastro = function (cidade, pais) {
         if (cidade != undefined || pais != undefined) {
-            $scope.buscarApi(cidade,pais);
-            if($scope.valido == 200){
-                $scope.cadastrar(cidade,pais);
-            } else {
+            $http({
+                method: 'GET',
+                url: '/forecast/' + cidade + '/' + pais
+            }).then(function success(response) {
+                if(response.data.cod == 200){
+                    $scope.cadastrar(cidade,pais);
+                } else {
+                    $scope.idApiErro = true;
+                    $scope.limpar();
+                }
+            }, function error(error) {
+                console.log(error);
                 $scope.idApiErro = true;
                 $scope.limpar();
-            }
+            });
         } else {
             $scope.idCadastroErro = true;
             $scope.limpar();

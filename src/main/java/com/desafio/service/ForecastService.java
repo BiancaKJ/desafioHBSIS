@@ -13,8 +13,9 @@ public class ForecastService{
 	
 	RestTemplate restTemplate = new RestTemplate();	
 	String urlApi = "https://api.openweathermap.org";
-	String key = "445f7f0b691f4533a30115a9b0cc1cea";
+	String key = "eb8b1a9405e659b2ffc78f0a520b1a46";
 	String cidade;
+	private HttpEntity<String> previsoes;
 	
 	public HttpEntity<String> buscaPrevisao(String nomeCidade, String pais) {
 		
@@ -24,7 +25,7 @@ public class ForecastService{
 				.fromHttpUrl(urlApi)
 				.path("/data/2.5/forecast")
 				.queryParam("q",cidade)
-				.queryParam("mode","json")
+				.queryParam("units", "metric")
 				.queryParam("appid", key);
 		
 		HttpHeaders headers = new HttpHeaders();
@@ -33,7 +34,17 @@ public class ForecastService{
 		
 		HttpEntity<String> response = restTemplate.exchange(builder.toUriString(), HttpMethod.GET, entity, String.class);
 		
+		setPrevisoes(response);
+		
 		return response;
-	}	
+	}
+
+	public HttpEntity<String> getPrevisoes() {
+		return previsoes;
+	}
+
+	public void setPrevisoes(HttpEntity<String> previsoes) {
+		this.previsoes = previsoes;
+	}
 	
 }
