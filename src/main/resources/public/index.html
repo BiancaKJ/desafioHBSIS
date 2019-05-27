@@ -16,26 +16,26 @@
     <h2 style="text-align: center; margin-top: 30px">PREVISÃO DO TEMPO</h2>
     <div>
       <h4 style="text-align: center; margin-top: 50px">Cadastrar Cidades</h4>
-      <div class="input-group mb-3" style="width: 750px; margin: auto; margin-top: 25px">
+      <div class="input-group mb-3" style="width: auto; max-width: 750px; min-width: 150; margin: auto; margin-top: 25px">
         <input id="cids" type="text" class="form-control text-reset" ng-model="cidade" placeholder="Ex: Blumenau" aria-describedby="button-addon2">
         <input id="pais" type="text" class="form-control text-reset" ng-model="pais" placeholder="Ex: br" aria-describedby="button-addon2">
         <div class="input-group-append">
           <button class="btn btn-dark" type="button" id="button-addon2" ng-click="validarCadastro(cidade,pais)">Cadastrar</button>
         </div>
       </div>
-      <div class="alert alert-success" role="alert" style="width: 750px; margin: auto; margin-top: 25px" ng-show="idCadastro">
+      <div class="alert alert-success" role="alert" style="width: auto; max-width: 750px; min-width: 300; margin: auto; margin-top: 25px" ng-show="idCadastro">
         Cidade cadastrada com sucesso!
         <button type="button" class="close" data-dismiss="alert" ng-click="fechar(idCadastro)" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="alert alert-danger" role="alert" style="width: 750px; margin: auto; margin-top: 25px" ng-show="idCadastroErro">
+      <div class="alert alert-danger" role="alert" style="width: auto; max-width: 750px; min-width: 300; margin: auto; margin-top: 25px" ng-show="idCadastroErro">
         Erro no cadastro, verifique as informações!
         <button type="button" class="close" data-dismiss="alert" ng-click="fechar(idCadastroErro)" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="alert alert-danger" role="alert" style="width: 750px; margin: auto; margin-top: 25px" ng-show="idApiErro">
+      <div class="alert alert-danger" role="alert" style="width: auto; max-width: 750px; min-width: 300; margin: auto; margin-top: 25px" ng-show="idApiErro">
         Erro no cadastro, cidade sem previsao de tempo!
         <button type="button" class="close" data-dismiss="alert" ng-click="fechar(idApiErro)" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -44,12 +44,12 @@
     </div>
     <div>
       <h4 style="text-align: center; margin-top: 50px">Cidades Cadastradas</h4>
-      <table class="table table-bordered overflow-auto" style="width: 750px; margin: auto; margin-top: 30px">
+      <table class="table table-bordered overflow-auto" style="width: auto; max-width: 750px; min-width: 300; margin: auto; margin-top: 30px">
         <thead style="text-align: center">
           <tr>
-            <th scope="col" style="width: 250px">Cidade</th>
-            <th scope="col" style="width: 250px">País</th>
-            <th scope="col" style="width: 250px">Previsão</th>
+            <th scope="col" style="width: 250px; min-width: 50;">Cidade</th>
+            <th scope="col" style="width: 250px; min-width: 50;">País</th>
+            <th scope="col" style="width: 250px; min-width: 50;">Previsão</th>
           </tr>
         </thead>
         <tbody style="text-align: center">
